@@ -1,6 +1,6 @@
 -- THE VEIL by anothurz - Public Loader
 -- Keep your main script on your private server/API, not in this repository.
-local MAIN_URL = "PUT_YOUR_MAIN_SCRIPT_URL_HERE"
+local MAIN_URL = "https://main-script-the-veil-private-git-main-dizapear.vercel.app/api/main"
 
 local ok, source = pcall(function()
     return game:HttpGet(MAIN_URL, true)
