@@ -1,4 +1,4 @@
-local MAIN_URL = "https://main-script-the-veil-private-git-main-dizapear.vercel.app/api/main"
+local MAIN_URL = "https://main-script-the-veil-private.vercel.app/api/main"
 
 local ok, source = pcall(function()
     return game:HttpGet(MAIN_URL, true)
