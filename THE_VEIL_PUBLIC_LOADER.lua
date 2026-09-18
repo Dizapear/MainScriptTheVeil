@@ -1,24 +1,25 @@
+-- THE VEIL by anothurz - Public Loader
+
 local MAIN_URL = "https://main-script-the-veil-private.vercel.app/api/main"
 
 local ok, source = pcall(function()
     return game:HttpGet(MAIN_URL, true)
 end)
 
-if not ok then
-    warn("[THE VEIL] HTTP error:", source)
+if not ok or type(source) ~= "string" or #source < 10 then
+    warn("[THE VEIL] Failed to download main script:", source)
     return
 end
 
-print("[THE VEIL] First 200 chars:")
-print(source:sub(1, 200))
+local fn, compileErr = loadstring(source)
 
-local fn, err = loadstring(source)
 if not fn then
-    warn("[THE VEIL] Compile error:", err)
+    warn("[THE VEIL] Main script compile error:", compileErr)
     return
 end
 
 local ran, runtimeErr = pcall(fn)
+
 if not ran then
-    warn("[THE VEIL] Runtime error:", runtimeErr)
+    warn("[THE VEIL] Main script runtime error:", runtimeErr)
 end
